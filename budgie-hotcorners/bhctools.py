@@ -4,7 +4,6 @@ gi.require_version('Gdk', '3.0')
 from gi.repository import Gdk
 import os
 import subprocess
-import shutil
 
 """
 Hot Corners
@@ -40,30 +39,15 @@ def get(cmd):
         pass
 
 
-def getres(*args):
-    # width of the primary screen.
-    dspl = Gdk.Display()
-    dsp = dspl.get_default()
-    prim = dsp.get_primary_monitor()
-    geo = prim.get_geometry()
-    return [geo.width, geo.height]
+def getres():
+    # get the resolution from wmctrl
+    resdata = get(["wmctrl", "-d"])
+    res = [int(n) for n in resdata.split()[3].split("x")] if resdata else None
+    return res
 
 
 def get_pressure():
-    setcustom = os.path.exists(pressure_trig)
-    try:
-        val = int(open(pressure_trig).read().strip())
-    except (FileNotFoundError, ValueError):
-        val = None
-    return setcustom, val
-
-
-def set_pressure(val):
-    open(pressure_trig, "wt").write(val)
-
-
-def executable_exists(ex):
-    return shutil.which(ex)
+    return os.path.exists(pressure_trig)
 
 
 def mousepos():
