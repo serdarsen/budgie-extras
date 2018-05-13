@@ -41,7 +41,6 @@ subdir('budgie-showtime')
 subdir('budgie-countdown')
 subdir('budgie-keyboard-autoswitch')
 subdir('budgie-rotation-lock')
-subdir('budgie-clockworks')
 subdir('budgie-dropby')
 
 #configure_file(
