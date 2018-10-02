@@ -80,16 +80,27 @@ def calc_track(poslist, i1, i2):
     return math.sqrt(xmov + ymov)
 
 
-def run_action(corner):
+def locked():
+    command = ["pgrep", "-f", "gnome-screensaver-dialog"]
     try:
-        action = [a[1] for a in actions if a[0] == corner - 1][0]
-    except IndexError:
-        pass
+        test = subprocess.check_output(command)
+    except Exception:
+        return False
     else:
+        return True
+
+
+def run_action(corner):
+    if not locked():
         try:
-            subprocess.Popen(["/bin/bash", "-c", action])
-        except subprocess.CalledProcessError:
+            action = [a[1] for a in actions if a[0] == corner - 1][0]
+        except IndexError:
             pass
+        else:
+            try:
+                subprocess.Popen(["/bin/bash", "-c", action])
+            except subprocess.CalledProcessError:
+                pass
 
 
 # config path
