@@ -69,6 +69,17 @@ namespace QuickNoteApplet {
     private string newtext;
     private bool update_steps;
 
+    private void set_content () {
+        // set size & content of the popup
+        int app_width = qn_settings.get_int("width");
+        int app_height = qn_settings.get_int("height");
+        win.set_size_request(app_width, app_height);
+        update_steps = false;
+        newtext = get_qntext(qn_settings, "custompath");
+        view.buffer.text = newtext;
+        update_steps = true;
+    }
+
     private string get_filepath(GLib.Settings settings, string key) {
         string filename = "quicknote_data.txt";
         string filepath = settings.get_string(key);
@@ -214,6 +225,7 @@ namespace QuickNoteApplet {
             else {
                 qn_settings.set_int("height", newval);
             }
+            set_content();
         }
     }
 
@@ -318,6 +330,9 @@ namespace QuickNoteApplet {
             redo.set_relief(Gtk.ReliefStyle.NONE);
             bbox.pack_start(redo, false, false, 0);
             maingrid.attach(bbox, 0, 1, 1, 1);
+            // make sure no weird stuff happens on hoover sideways
+            set_content();
+            maingrid.show_all();
         }
     }
 
@@ -357,16 +372,8 @@ namespace QuickNoteApplet {
                 if (popover.get_visible()) {
                     popover.hide();
                 } else {
-                    /* temporary disable bookkeeping */
-                    update_steps = false;
-                    newtext = get_qntext(qn_settings, "custompath");
-                    view.buffer.text = newtext;
-                    update_steps = true;
-                    int app_width = qn_settings.get_int("width");
-                    int app_height = qn_settings.get_int("height");
-                    win.set_size_request(app_width, app_height);
+                    set_content();
                     this.manager.show_popover(indicatorBox);
-
                 }
                 return Gdk.EVENT_STOP;
             });
