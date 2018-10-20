@@ -216,16 +216,20 @@ class BudgieQuickNoteApplet(Budgie.Applet):
         # throw it in popover
         self.popover.add(self.maingrid)
         self.popover.get_child().show_all()
-        self.box.show_all()
-        self.show_all()
+        self.set_content()
         self.box.connect("button-press-event", self.on_press)
 
-    def on_press(self, box, arg):
+    def set_content(self, *args):
         winsize = self.get_winsize()
         self.win.set_size_request(winsize[0], winsize[1])
         self.textfile = get_notesdir()[0]
         starttext = self.set_starttext()
         self.buffer.set_text(starttext)
+        self.box.show_all()
+        self.show_all()
+
+    def on_press(self, box, arg):
+        self.set_content(self)
         self.manager.show_popover(self.box)
 
     def get_txt(self, *args):
