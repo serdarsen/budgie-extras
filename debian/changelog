@@ -7,6 +7,8 @@ budgie-extras (0.8.2-0ubuntu1) disco; urgency=medium
      - Fix vertical spacing issues for Showtime
      - Cope with different locale date formats correctly - this resolves date
        display problems
+  * Packaging Changes
+     - Control - add libwnck-3-dev as build dependency
 
  -- David Mohammed <fossfreedom@ubuntu.com>  Sat, 02 Mar 2019 20:43:42 +0000
 
