@@ -8,9 +8,9 @@ budgie-extras (0.8.2-0ubuntu1) disco; urgency=medium
      - Cope with different locale date formats correctly - this resolves date
        display problems
   * Packaging Changes
-     - Control - add libwnck-3-dev as build dependency
+     - Control - add libwnck-3-dev as build dependency 
 
- -- David Mohammed <fossfreedom@ubuntu.com>  Sat, 02 Mar 2019 20:43:42 +0000
+ -- David Mohammed <fossfreedom@ubuntu.com>  Sun, 10 Mar 2019 10:24:04 +0000
 
 budgie-extras (0.8.1-0ubuntu1) disco; urgency=medium
 
