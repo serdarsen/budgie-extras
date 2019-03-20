@@ -1,0 +1,21 @@
+Index: budgie-extras-0.8.2/budgie-hotcorners/schema/org.ubuntubudgie.plugins.budgie-hotcorners.gschema.xml
+===================================================================
+--- budgie-extras-0.8.2.orig/budgie-hotcorners/schema/org.ubuntubudgie.plugins.budgie-hotcorners.gschema.xml
++++ budgie-extras-0.8.2/budgie-hotcorners/schema/org.ubuntubudgie.plugins.budgie-hotcorners.gschema.xml
+@@ -26,12 +26,12 @@
+             <summary>Command list dropdown menu</summary>
+             <description>The default list of commands/names in the dropdown menu</description>
+             <default>[
+-	    "{'command': '/usr/share/budgie-desktop/showdesktop/showdesktop', 'name': 'Show Desktop'}",
+-            "{'command': '/usr/lib/budgie-desktop/plugins/budgie-wprviews/wprv_hc nokeys', 'name': 'Exposé all windows'}", 
++	    "{'command': '/usr/lib/budgie-desktop/plugins/budgie-hcorners/showdesktop', 'name': 'Show Desktop'}",
++            "{'command': '/usr/lib/budgie-desktop/plugins/budgie-wprviews/wprv_hc nokeys', 'name': 'Exposé all windows'}",
+             "{'command': '/usr/lib/budgie-desktop/plugins/budgie-wprviews/wprv_hc current nokeys', 'name': 'Exposé current application'}",
+-            "{'command': 'budgie-desktop-settings', 'name':'Budgie Desktop Settings'}", 
++            "{'command': 'budgie-desktop-settings', 'name':'Budgie Desktop Settings'}",
+             "{'command': 'gnome-screensaver-command -l', 'name': 'Lock screen'}",
+-    	    "{'command': 'xdotool key super+n', 'name': 'Show Raven notifications'}", 
++    	    "{'command': 'xdotool key super+n', 'name': 'Show Raven notifications'}",
+             "{'command': 'xdotool key super+a', 'name': 'Toggle Raven'}"
+             ]</default>
+         </key>
