@@ -398,3 +398,20 @@ Description: GUI to find and choose locale characters
  character.
  .
  Quickchar can be used on most desktop environments invoked by a shortcut key.
+
+Package: budgie-workspace-stopwatch-applet
+Architecture: all
+Depends: python3,
+	python3-gi,
+	gir1.2-glib-2.0,
+	gir1.2-gtk-3.0,
+	gir1.2-wnck-3.0,
+	${misc:Depends}, ${python3:Depends}
+Description: Workspace usage tracker for the budgie desktop
+ This is part of a suite of python3 and Vala based applets & mini-apps
+ created for the Budgie Desktop that provide additional user orientated
+ capabilities. These can be used individually or as a set.
+ .
+ Workspace Stopwatch Applet keeps track of usage per workspace,
+ i.e. to find out how much minutes/hours were actually spent on a job.
+ Workspaces can be freely named, custom names and all data are remembered.
